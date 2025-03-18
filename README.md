@@ -24,23 +24,34 @@ This project is being developed as part of my CentraleSupélec Computer Vision c
 The approach follows the methodology described in the article **"Computer Vision System for Chess Game Reconstruction"** by M. Piškorec et al.
 
 ### Step-by-step Process
-1. **Image Preprocessing:**
-   - Convert image to grayscale.
-   - Apply noise reduction techniques (Gaussian blur, adaptive thresholding).
-2. **Board and Piece Detection:**
-   - Identify the chessboard grid using corner detection techniques (e.g., OpenCV’s `cvFindChessboardCorners`).
-   - Segment the chessboard into individual squares.
-   - Detect the presence of pieces using feature extraction methods.
-3. **Move Detection:**
-   - Compare consecutive frames to detect changes.
-   - Identify start and end positions of the moved pieces.
-   - Convert detected moves into standard chess notation.
-4. **Piece Classification:**
-   - Use Support Vector Machine (SVM) classifiers for identifying different chess pieces based on their shape.
-   - Train the classifier using a dataset of labeled chess pieces.
-5. **Game Reconstruction:**
-   - Track moves and construct a move list.
-   - Generate Forsyth–Edwards Notation (FEN) for board state representation.
+
+**Step 1: Preprocessing the Image**
+Convert to Grayscale: Simplifies processing and reduces noise.
+Apply Gaussian Blur: Smooths the image and reduces high-frequency noise.
+Edge Detection: Use Canny or Sobel to detect edges.
+Morphological Transformations: Apply dilation and erosion to clean up the edges.
+
+**Step 2: Chessboard Detection**
+Detect Chessboard Corners: Use OpenCV’s cv2.findChessboardCorners or Hough Line Transform to detect the grid.
+Perspective Transformation: Warp the image so that the chessboard is aligned with a standard 8×8 grid.
+
+**Step 3: Grid Segmentation (Splitting the Board into 64 Squares)**
+Use the detected corners to map the chessboard into 64 individual squares.
+Store each square as a ROI (Region of Interest).
+
+**Step 4: Identifying Chess Pieces Using Dino-v2**
+Extract each square that contains a piece.
+Apply Dino-v2 (Vision Transformer model) to classify the piece.
+Use a fine-tuned Dino-v2 model trained on chess piece datasets to detect:
+Piece Type (King, Queen, Rook, Bishop, Knight, Pawn)
+Piece Color (White/Black)
+
+**Step 5: Mapping Positions to Chess Notation**
+Assign the detected pieces to their corresponding chessboard positions (e.g., e4, d5).
+Store the board state in FEN notation.
+
+**Final Output**
+Board State Representation: Generate FEN notation or a visual board with piece positions.
 
 ## Technologies Used
 - **Programming Language:** Python (OpenCV, NumPy, TensorFlow/Keras for machine learning models)
