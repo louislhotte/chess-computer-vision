@@ -23,6 +23,9 @@ This project is being developed as part of my CentraleSupélec Computer Vision c
 ## Methodology
 The approach follows the methodology described in the article **"Computer Vision System for Chess Game Reconstruction"** by M. Piškorec et al.
 
+MVP pipeline
+![Pipeline](./data/Slide/pipeline.jpg)
+
 ### Step-by-step Process
 
 **Step 1: Preprocessing the Image**
