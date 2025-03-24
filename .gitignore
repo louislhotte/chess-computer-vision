@@ -1,0 +1,27 @@
+# Environnements virtuels
+.venv/
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# Fichiers Python
+__pycache__/
+*.py[cod]
+*.pyo
+
+# Fichiers de log
+*.log
+
+# Fichiers temporaires d'éditeurs
+.vscode/
+.idea/
+
+# Fichiers spécifiques à Conda
+.env/
+conda-env/
+
+# Fichiers de sortie de tests
+*.out
+*.err
