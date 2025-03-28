@@ -62,6 +62,10 @@ Board State Representation: Generate FEN notation or a visual board with piece p
 - **Machine Learning:** SVM (Support Vector Machine) for classification OR dino-v2 for better performances
 - **Data Formats:** FEN notation for chess state representation (or a list?)
 
+## Dataset
+Annoation pipeline used to create the custom dataset (to better match our chess board and pieces)
+![Annotation pipeline](./data/Slide/annotation_pipeline.png)
+
 ## Reference
 Piškorec, M., Antulov-Fantulin, N., Ćurić, J., Dragoljević, O., Ivanac, V., & Karlović, L. (2010). **Computer Vision System for the Chess Game Reconstruction.** Faculty of Electrical Engineering and Computing, University of Zagreb.
 
